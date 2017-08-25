@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>博学谷</title>
+    <link rel="icon" type="image/x-icon" href="./imgs/monkeyy.ico">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h3 class="text-center">博学谷管理系统</h3>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="tc_name" value="前端学院">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" name="tc_pass" value="123456" >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success btn-block">登录</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
+<script src="./js/lib/jquery-2.1.4.js"></script>
+<script src="./js/lib/jquery.cookie.js"></script>
+<script>
+    $("form").on("submit",function(){
+        // alert(1);
+        var formData = $(this).serialize();
+        // alert(formData);
+        $.ajax({
+            url: "/api/login",//"/api/login"
+            type: "post",
+            data: formData,
+            success: function(data){
+                console.log(data);
+
+
+                if(data.code == 200){
+                    var userInfoStr = JSON.stringify(data.result);
+                    // sessionStorage.setItem("userInfo",userInfoStr);
+                    $.cookie("userInfo",userInfoStr);
+
+
+                    location.href = "index.html";
+                }
+            },
+            error: function(data){
+                console.log("登录失败");
+                console.log(data);
+
+            }
+
+
+
+        })
+
+        return false;
+    })
+
+
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//     ## 课后作业：已知字符串："id=666; PHPSESSID=c993fp0r0eu9c8pp7esdmr1oq5"，封装一个函数，获取指定的键值
+//  function fn(key){
+//  }
+//  fn("id")-->"666"
+//  fn("PHPSESSID")-->"c993fp0r0eu9c8pp7esdmr1oq5"
+
+function fn(n){
+    var str = "id=666; PHPSESSID=c993fp0r0eu9c8pp7esdmr1oq5";
+    var strArr = str.split(";");
+    var strObj = new Object();
+    for(var i=0; i < strArr.length;i++){
+        var name = strArr[i].trim().split("=")[0];
+        var value = strArr[i].trim().split("=")[1]
+        strObj[name] = value;
+    }
+    // console.log(strArr);
+    console.log(strObj);
+     console.log(strObj[n]);
+
+}
+fn("id");
+
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/uploadify/uploadify.css">
+    <style type="text/css">
+        .uploadify-button {
+            background-color: red;
+            border: none;
+            padding: 0;
+        }
+
+        .uploadify:hover .uploadify-button {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" name="file_upload" id="file_upload" />
+</body>
+
+</html>
+<script type="text/javascript" src="../js/lib/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="../assets/uploadify/jquery.uploadify.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#file_upload').uploadify({
+            auto:false,
+            swf: '../assets/uploadify/uploadify.swf',
+            uploader: '../assets/uploadify/uploadify.php',
+            heiht: 20,
+            width: 90,
+            buttonText: '上传',
+            buttonClass: 'uploadify-button',
+            // 'buttonImage':'../imgs/pic.jpg',
+            // 'fileSizeLimit' : '100KB',
+            fileTypeDesc: 'Image Files',
+            fileTypeExts: '*.gif; *.jpg; *.png',
+            itemTemplate: '<span></span>'
+
+            // Your options here
+        });
+    });
+</script>

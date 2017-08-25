@@ -1,0 +1,22 @@
+.left {
+  width: 200px;
+  background-color: skyblue;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+.left .profile img {
+  display: block;
+  margin: 30px auto 0;
+}
+.right {
+  position: absolute;
+  left: 200px;
+  top: 0;
+  right: 0;
+  background-color: pink;
+  min-height: 800px;
+}
+.right .panel-top a {
+  line-height: 34px;
+}
